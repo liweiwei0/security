@@ -10,7 +10,6 @@
 业务逻辑 --> aspect --> controllerAdvice --> interceptor --> filter --> 响应
 ```
 
-如图：
 ![](./001.PNG '调用管理图')
 
 - filter 过滤器 接受请求响应对象 获取请求相关参数（无法获取请求的controller信息） 是javax的声明不知道spring声明的controller等mvc架构信息
