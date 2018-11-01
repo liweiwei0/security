@@ -9,12 +9,12 @@ public class TFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("TFilter init 过滤器初始化");
+        System.out.println("过滤器初始化 TFilter init");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("TFilter doFilter");
+        System.out.println("过滤器 TFilter doFilter");
 
         Long starttime = System.currentTimeMillis();
 
@@ -22,11 +22,11 @@ public class TFilter implements Filter {
         filterChain.doFilter(servletRequest, servletResponse);
 
         Long endtime = System.currentTimeMillis();
-        System.out.println("filter 耗时 " + (endtime - starttime));
+        System.out.println("过滤器 filter 耗时 " + (endtime - starttime));
     }
 
     @Override
     public void destroy() {
-        System.out.println("TFilter destroy 过滤器销毁");
+        System.out.println("过滤器销毁 TFilter destroy");
     }
 }

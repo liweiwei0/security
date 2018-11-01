@@ -14,7 +14,7 @@ public class TAspect {
     //切点是 execution(* fun.lww.securitydemo.web.*.*(..))
     @Around("execution(* fun.lww.securitydemo.web.*.*(..))")
     public Object around(ProceedingJoinPoint pjp) {
-        System.out.println("TAspect around");
+        System.out.println("切片 TAspect around");
         Long starttime = System.currentTimeMillis();
 
         try {
@@ -23,7 +23,7 @@ public class TAspect {
             System.out.println(obj);
 
             Long endtime = System.currentTimeMillis();
-            System.out.println("TAspect 耗时 " + (endtime - starttime));
+            System.out.println("切片 TAspect 耗时 " + (endtime - starttime));
 
             return obj;
         } catch (Throwable throwable) {
