@@ -1,5 +1,8 @@
 package fun.lww.securitydemo.filter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.*;
 import java.io.IOException;
 
@@ -7,14 +10,16 @@ import java.io.IOException;
 //@Component
 public class TFilter implements Filter {
 
+    private Logger log = LoggerFactory.getLogger(getClass());
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("过滤器初始化 TFilter init");
+        log.info("过滤器初始化 init");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("过滤器 TFilter doFilter");
+        log.info("过滤器 doFilter");
 
         Long starttime = System.currentTimeMillis();
 
@@ -22,11 +27,11 @@ public class TFilter implements Filter {
         filterChain.doFilter(servletRequest, servletResponse);
 
         Long endtime = System.currentTimeMillis();
-        System.out.println("过滤器 filter 耗时 " + (endtime - starttime));
+        log.info("过滤器 耗时 " + (endtime - starttime));
     }
 
     @Override
     public void destroy() {
-        System.out.println("过滤器销毁 TFilter destroy");
+        log.info("过滤器销毁 destroy");
     }
 }
