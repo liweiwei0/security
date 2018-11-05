@@ -3,7 +3,6 @@ package fun.lww.securitydemo.interceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,8 +18,8 @@ public class TInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("拦截器 preHandle");
-        log.info("拦截器 请求的controller " + ((HandlerMethod) handler).getBean().getClass().getName());
-        log.info("拦截器 请求的方法 " + ((HandlerMethod) handler).getMethod().getName());
+//        log.info("拦截器 请求的controller " + ((HandlerMethod) handler).getBean().getClass().getName());
+//        log.info("拦截器 请求的方法 " + ((HandlerMethod) handler).getMethod().getName());
 
         request.setAttribute("starttime", System.currentTimeMillis());
         return true;

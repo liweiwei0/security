@@ -1,6 +1,5 @@
 package fun.lww.securitydemo.async;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        new Thread(() -> {
+        /*new Thread(() -> {
             while (true) {
                 log.info("循环 监听");
                 if (StringUtils.isNotBlank(mockQueue.getPlaceOrder())) {
@@ -37,6 +36,6 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
                     }
                 }
             }
-        }).start();
+        }).start();*/
     }
 }

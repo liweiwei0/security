@@ -26,7 +26,15 @@ public class AsyncOrderController {
     @Autowired
     private DeferredResultHolder deferredResultHolder;
 
-    //使用Callable接口 异步返回业务结果
+    // 使用Callable接口 异步返回业务结果
+    // 返回Callable对象时，实际工作线程会在后台处理，Controller无需等待工作线程处理完成，但Spring会在工作线程处理完毕后才返回客户端。
+    // 它的执行流程是这样的：
+    // 1.客户端请求服务
+    // 2.SpringMVC调用Controller，Controller返回一个Callback对象
+    // 3.SpringMVC调用ruquest.startAsync并且将Callback提交到TaskExecutor中去执行
+    // 4.DispatcherServlet以及Filters等从应用服务器线程中结束，但Response仍旧是打开状态，也就是说暂时还不返回给客户端
+    // 5.TaskExecutor调用Callback返回一个结果，SpringMVC将请求发送给应用服务器继续处理
+    // 6.DispatcherServlet再次被调用并且继续处理Callback返回的对象，最终将其返回给客户端
     @GetMapping("/placeAnOrder")
     public Callable<String> placeAnOrder() {
         log.info("主线程开始");
