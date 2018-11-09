@@ -1,4 +1,12 @@
-# spring boot security
+# security
+
+
+## child model
+- security-core 核心业务逻辑
+- security-browser 浏览器安全特定代码
+- security-app app安全相关特定代码
+- security-demo 样例程序 [=>](./security-demo/README.md "demo-readme")   
+
 
 > 使用security实现认证和授权目标
 - 可重用
@@ -16,9 +24,3 @@
 > 基于sso单点登录
 
 > 基于swagger的result full的api文档管理
-
-## child model
-- security-core 核心业务逻辑
-- security-browser 浏览器安全特定代码
-- security-app app安全相关特定代码
-- security-demo 样例程序 [README](./security-demo/README.md "demo-readme")   
