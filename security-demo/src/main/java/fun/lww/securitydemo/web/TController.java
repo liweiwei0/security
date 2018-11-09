@@ -6,13 +6,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//测试
+/**
+ * 测试 Controller增强 方法
+ */
 @RestController
 @RequestMapping("/t")
 public class TController {
 
-    //测试ControllerAdvice addAttributes方法效果
-    //通过ModelMap对象或@ModelAttribute注解 获取在TControllerAdvice.addAttributes方法set的值
+    /**
+     * 测试ControllerAdvice addAttributes方法效果
+     * 通过ModelMap对象或@ModelAttribute注解 获取在TControllerAdvice.addAttributes方法set的值
+     */
     @GetMapping("/test1")
     public void test1(@ModelAttribute("author") String author) {
         System.out.println(author);

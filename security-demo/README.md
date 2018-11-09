@@ -22,8 +22,8 @@
 ## springmvc 异步处理请求 模式分析
 
 ### spring异步处理机制
-- 使用Callable或者DeferredResult当成Controller的返回值，能够处理异步返回单个结果的场景
-- 使用ResponseBodyEmitter/SseEmitter或者StreamingResponseBody来流式处理多个返回值
+- 使用Callable或者DeferredResult当成Controller的返回值，能够处理异步返回 '单个结果' 的场景
+- 使用ResponseBodyEmitter/SseEmitter或者StreamingResponseBody来流式处理 '多个返回值'
 - 在Controller中使用响应式客户端调用服务并返回响应式的数据对象
 
 ## 使用wiremock模拟接口响应

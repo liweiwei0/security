@@ -8,12 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
+/**
+ * 文件上传下载
+ */
 @RestController
 @RequestMapping("/file")
 public class FileController {
 
-    private String filder = "E:/projects/security/security-demo/src/main/resources/static/filder/";
+    private String filder = "E:/projects/security/security-demo/src/main/resources/file/";
 
+    /**
+     * 上传
+     * @param file
+     * @throws IOException
+     */
     @PostMapping
     public void upload(MultipartFile file) throws IOException {
         String filename = file.getOriginalFilename();
@@ -22,6 +30,12 @@ public class FileController {
         file.transferTo(file1);
     }
 
+    /**
+     * 下载
+     * @param filename
+     * @param request
+     * @param response
+     */
     @GetMapping("/{filename}")
     public void download(@PathVariable("filename") String filename, HttpServletRequest request, HttpServletResponse response) {
         File file = new File(filder + filename);

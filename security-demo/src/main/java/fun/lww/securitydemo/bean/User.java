@@ -9,6 +9,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
+/**
+ * 用户类
+ */
 public class User {
 
     private Long id;

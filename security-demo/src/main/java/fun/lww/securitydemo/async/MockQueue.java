@@ -1,11 +1,17 @@
 package fun.lww.securitydemo.async;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-//模拟队列业务类
+/**
+ * 模拟队列业务类
+ */
 @Component
 public class MockQueue {
+
+    private Logger log = LoggerFactory.getLogger(MockQueue.class);
 
     private String placeOrder;
     private String completeOrder;
@@ -16,14 +22,14 @@ public class MockQueue {
 
     public void setPlaceOrder(String placeOrder) {
         if (StringUtils.isNotBlank(placeOrder)) {
-            System.out.println("接到下单请求");
+            log.info("接到下单请求");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             this.placeOrder = placeOrder;
-            System.out.println("下单完成");
+            log.info("实际 下单完成");
         }
     }
 

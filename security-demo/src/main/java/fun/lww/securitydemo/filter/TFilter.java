@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.*;
 import java.io.IOException;
 
-//过滤器 @Component注解将过滤器交给spring管理
+/**
+ * 过滤器 @Component注解将过滤器交给spring管理
+ */
 //@Component
 public class TFilter implements Filter {
 

@@ -7,6 +7,10 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+/**
+ * 监听队列
+ * ApplicationListener 项目启动时开启监听
+ */
 @Component
 public class QueueListener implements ApplicationListener<ContextRefreshedEvent> {
 

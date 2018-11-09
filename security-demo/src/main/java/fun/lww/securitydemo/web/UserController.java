@@ -16,6 +16,9 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 用户管理
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -29,7 +32,9 @@ public class UserController {
         users.add(new User(3L, "ww", "123456"));
     }
 
-    // @JsonView 注解可以在调用接口 返回同一对象不同属性 注意 需要定义注解中添加的接口 及在实体属性上使用注解
+    /**
+     * @JsonView 注解可以在调用接口 返回同一对象不同属性 注意 需要定义注解中添加的接口 及在实体属性上使用注解
+     */
     @GetMapping
     @JsonView(UserSimple.class)
     public List<User> users() {
@@ -45,10 +50,13 @@ public class UserController {
         return users;
     }
 
-    // 使用正则表达式验证参数
-    //id:1 只会匹配id=1的请求
+    /**
+     * 使用正则表达式验证参数
+     *
+     * GetMapping("/{id:1}")
+     * id:1 只会匹配id=1的请求
+     */
     @GetMapping("/{id:\\d+}")
-//    @GetMapping("/{id:1}")
     @JsonView(UserDetail.class)
     public User userinfo(@PathVariable(name = "id") Long id) {
         log.info("id {}", id);
@@ -56,7 +64,10 @@ public class UserController {
         return users.get(0);
     }
 
-    //使用@Valid注解进行属性非空验证 错误信息在BindingResult中可以获取 @Valid注解可以单独使用 BindingResult需和@Valid注解一同使用
+    /**
+     * 使用@Valid注解进行属性非空验证 错误信息在BindingResult中可以获取
+     * Valid注解可以单独使用 BindingResult需和@Valid注解一同使用
+     */
     @PostMapping
     public User create(@Valid @RequestBody User user, BindingResult errors) {
         log.info("user {}", user);

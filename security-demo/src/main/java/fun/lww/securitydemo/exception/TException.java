@@ -1,6 +1,8 @@
 package fun.lww.securitydemo.exception;
 
-//自定义异常类
+/**
+ * 自定义异常类 继承自RuntimeException
+ */
 public class TException extends RuntimeException {
 
     private Long id;

@@ -7,15 +7,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-//切片
+/**
+ * 切片
+ */
 @Aspect
 @Component
 public class TAspect {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    //环绕切面
-    //切点是 execution(* fun.lww.securitydemo.web.*.*(..))
+    /**
+     * 环绕切面
+     * 切点是 execution(* fun.lww.securitydemo.web.*.*(..))
+     */
     @Around("execution(* fun.lww.securitydemo.web.*.*(..))")
     public Object around(ProceedingJoinPoint pjp) {
         log.info("切片 around");

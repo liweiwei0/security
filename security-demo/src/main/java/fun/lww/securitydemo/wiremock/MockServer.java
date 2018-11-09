@@ -6,6 +6,9 @@ import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 
+/**
+ * 使用wiremock模拟数据
+ */
 public class MockServer {
 
     public static void main(String[] args) throws IOException {
