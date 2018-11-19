@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(CoreProperties.class)
-public class CoreSecurityConfig {
+public class CoreConfig {
 
 }

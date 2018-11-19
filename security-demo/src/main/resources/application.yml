@@ -3,11 +3,16 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-2ze0803j8f23nryj3go.mysql.rds.aliyuncs.com:3306/li_test?useUnicode=true&characterEncoding=utf8&useSSL=true
-    username: liweiwei
-    password: QWEqwe123
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    username: root
+    password: 12345678
   session:
     store-type: none
-#sp:
-#  browser:
-#    loginpage: /demo-signIn.html
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+cp:
+  browser:
+    loginpage: /demo-signIn.html
+    resptype: JSON

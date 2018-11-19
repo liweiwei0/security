@@ -39,7 +39,7 @@ public class SecurityController {
         if (savedRequest != null) {
             String redirectUrl = savedRequest.getRedirectUrl();
             if (StringUtils.endsWithIgnoreCase(redirectUrl, ".html")) {
-                redirectStrategy.sendRedirect(request, response, coreProperties.getBrowser().getLoginPage());
+                redirectStrategy.sendRedirect(request, response, coreProperties.getBrowser().getLoginpage());
             }
         }
         return new Result(ResultCodeMsg.ERROR, "未授权 请登录");
