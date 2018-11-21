@@ -9,6 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +35,30 @@ public class UserController {
         users.add(new User(1L, "zs", "123456"));
         users.add(new User(2L, "ls", "123456"));
         users.add(new User(3L, "ww", "123456"));
+    }
+
+    /**
+     * 当前用户权限
+     */
+    @GetMapping("/now")
+    public Object nowUser() {
+        return SecurityContextHolder.getContext().getAuthentication();
+    }
+
+    /**
+     * 当前用户权限
+     */
+    @GetMapping("/now1")
+    public Object nowUser1(Authentication authentication) {
+        return authentication;
+    }
+
+    /**
+     * 当前用户
+     */
+    @GetMapping("/now2")
+    public Object nowUser2(@AuthenticationPrincipal UserDetails user) {
+        return user;
     }
 
     /**
