@@ -1,4 +1,4 @@
-package fun.lww.securitybrowser.Util;
+package fun.lww.securitybrowser.util;
 
 /**
  * 响应包装类

@@ -1,7 +1,7 @@
 package fun.lww.securitybrowser.web;
 
-import fun.lww.securitybrowser.Util.Result;
-import fun.lww.securitybrowser.Util.ResultCodeMsg;
+import fun.lww.securitybrowser.util.Result;
+import fun.lww.securitybrowser.util.ResultCodeMsg;
 import fun.lww.securitycore.config.CoreProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

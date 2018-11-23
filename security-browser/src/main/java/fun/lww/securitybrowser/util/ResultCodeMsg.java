@@ -1,4 +1,4 @@
-package fun.lww.securitybrowser.Util;
+package fun.lww.securitybrowser.util;
 
 public enum ResultCodeMsg {
 
